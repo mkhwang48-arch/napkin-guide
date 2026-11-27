@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b2f50">
+<title>냅킨 접기 교육 가이드</title>
+<meta name="description" content="연회 서비스 교육용 냅킨 접기 6단계 — 교육 영상과 1~6단계 도식을 스마트폰에서 바로 볼 수 있습니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1b2f50;
+    --ink:#283547;
+    --gray:#566579;
+    --lgray:#828f9f;
+    --hair:#dae1e9;
+    --band:#edf1f5;
+    --yellow:#f2b421;
+    --yellow-d:#9c710b;
+    --paper:#f6f4ef;
+    --paper-e:#d7cfba;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:#f7f8fa;
+    color:var(--ink);
+    font-family:"Gowun Batang","Gowun Batang",'Apple SD Gothic Neo','Malgun Gothic',serif;
+    font-weight:400;
+    line-height:1.55;
+    word-break:keep-all;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:0 0 40px}
+
+  /* ---------- header ---------- */
+  header{
+    background:linear-gradient(180deg,#1b2f50 0%,#243d63 100%);
+    color:#fff;
+    padding:calc(20px + env(safe-area-inset-top)) 20px 20px;
+  }
+  .head-in{max-width:680px;margin:0 auto}
+  .eyebrow{
+    display:inline-block;font-size:12px;letter-spacing:.14em;
+    color:#f2b421;font-weight:700;margin-bottom:6px;
+  }
+  h1{
+    margin:0;font-size:24px;line-height:1.3;font-weight:700;letter-spacing:-.01em;
+  }
+  .sub{margin:8px 0 0;font-size:14px;color:#c8d3e2;font-weight:400}
+  .rule{height:3px;background:var(--yellow);width:34px;border-radius:2px;margin:14px 0 0}
+
+  /* ---------- section ---------- */
+  section{padding:26px 16px 0}
+  .sec-head{display:flex;align-items:baseline;gap:8px;margin:0 0 12px;padding:0 4px}
+  .sec-head h2{
+    margin:0;font-size:17px;font-weight:700;color:var(--navy);letter-spacing:-.01em;
+  }
+  .sec-head .num{
+    font-size:12px;color:var(--yellow-d);font-weight:700;letter-spacing:.08em;
+  }
+
+  /* ---------- video ---------- */
+  .video-card{
+    background:#0f1724;border-radius:16px;overflow:hidden;
+    box-shadow:0 6px 18px rgba(20,35,60,.14);
+  }
+  video{
+    display:block;width:100%;height:auto;max-height:74vh;background:#0f1724;
+  }
+  .video-note{
+    margin:10px 4px 0;font-size:13px;color:var(--gray);
+  }
+
+  /* ---------- slideshow ---------- */
+  .slider{
+    position:relative;background:#fff;border:1px solid var(--hair);border-radius:16px;
+    box-shadow:0 4px 14px rgba(20,35,60,.07);overflow:hidden;
+  }
+  .viewport{overflow:hidden;touch-action:pan-y}
+  .track{
+    display:flex;transition:transform .32s cubic-bezier(.22,.61,.36,1);
+    will-change:transform;
+  }
+  .slide{flex:0 0 100%;min-width:100%}
+  .slide img{display:block;width:100%;height:auto;background:#fff}
+  .slide-cap{
+    padding:12px 16px 14px;border-top:1px solid #eef1f5;
+    display:flex;gap:10px;align-items:flex-start;
+  }
+  .slide-cap .badge{
+    flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--navy);
+    color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;
+    justify-content:center;margin-top:2px;
+  }
+  .slide-cap .cap-t{font-size:15px;font-weight:700;color:var(--navy);line-height:1.4}
+  .slide-cap .cap-e{display:block;font-size:12.5px;font-weight:400;color:var(--lgray);margin-top:2px}
+
+  /* controls */
+  .ctrl{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:12px 12px 4px;background:#fff;
+  }
+  .nav-btn{
+    appearance:none;border:1px solid var(--hair);background:#fff;color:var(--navy);
+    font-family:inherit;font-weight:700;font-size:14px;border-radius:12px;
+    padding:11px 16px;min-width:84px;display:inline-flex;align-items:center;justify-content:center;gap:6px;
+    cursor:pointer;transition:background .15s,border-color .15s,opacity .15s;
+  }
+  .nav-btn:active{background:#eef2f7}
+  .nav-btn[disabled]{opacity:.38;cursor:default}
+  .counter{
+    font-size:14px;color:var(--gray);font-variant-numeric:tabular-nums;white-space:nowrap;
+  }
+  .counter b{color:var(--navy);font-size:17px}
+
+  .tabs{
+    display:grid;grid-template-columns:repeat(6,1fr);gap:6px;
+    padding:10px 12px 14px;background:#fff;
+  }
+  .tab{
+    appearance:none;border:1px solid var(--hair);background:#fff;color:var(--gray);
+    font-family:inherit;font-size:15px;font-weight:700;border-radius:10px;
+    padding:10px 0;cursor:pointer;transition:background .15s,color .15s,border-color .15s;
+    font-variant-numeric:tabular-nums;
+  }
+  .tab[aria-selected="true"]{
+    background:var(--navy);border-color:var(--navy);color:#fff;
+  }
+  .hint{
+    margin:10px 4px 0;font-size:12.5px;color:var(--lgray);text-align:center;
+  }
+  .progress{
+    height:3px;background:#e9edf3;border-radius:3px;margin:10px 12px 0;overflow:hidden;
+  }
+  .progress > i{
+    display:block;height:100%;width:16.6667%;background:var(--yellow);
+    border-radius:3px;transition:width .3s ease;
+  }
+
+  /* ---------- full A4 ---------- */
+  details.a4{
+    background:#fff;border:1px solid var(--hair);border-radius:16px;
+    box-shadow:0 4px 14px rgba(20,35,60,.06);overflow:hidden;
+  }
+  details.a4 > summary{
+    list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;
+    justify-content:space-between;gap:12px;font-weight:700;color:var(--navy);font-size:15px;
+  }
+  details.a4 > summary::-webkit-details-marker{display:none}
+  details.a4 > summary .meta{
+    font-size:12.5px;font-weight:400;color:var(--lgray);
+  }
+  details.a4 > summary .chev{
+    flex:0 0 auto;transition:transform .25s;color:var(--lgray);font-size:13px;
+  }
+  details.a4[open] > summary .chev{transform:rotate(180deg)}
+  .a4-body{padding:0 12px 14px}
+  .a4-body img{
+    display:block;width:100%;height:auto;border:1px solid var(--hair);border-radius:8px;background:#fff;
+  }
+  .a4-body a{
+    display:inline-block;margin-top:10px;font-size:13px;color:var(--yellow-d);text-decoration:none;
+    border-bottom:1px solid rgba(156,113,11,.35);padding-bottom:1px;
+  }
+
+  footer{
+    margin:30px 16px 0;padding-top:16px;border-top:1px solid var(--hair);
+    font-size:12.5px;color:var(--lgray);text-align:center;line-height:1.7;
+  }
+  footer b{color:var(--gray);font-weight:700}
+
+  @media (min-width:560px){
+    h1{font-size:28px}
+    .sub{font-size:15px}
+    .tab{font-size:16px;padding:12px 0}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="head-in">
+      <span class="eyebrow">연회 서비스 교육용</span>
+      <h1>냅킨 접기 교육 가이드</h1>
+      <p class="sub">한눈에 보는 영상 &amp; 6단계 도식</p>
+      <div class="rule"></div>
+    </div>
+  </header>
+
+  <section id="video">
+    <div class="sec-head">
+      <span class="num">영상</span>
+      <h2>접는 순서 그대로 보기</h2>
+    </div>
+    <div class="video-card">
+      <video id="eduVideo" controls playsinline preload="metadata"
+             poster="assets/poster.jpg" width="720" height="1280">
+        <source src="assets/napkin-fold.mp4" type="video/mp4">
+        브라우저가 영상을 지원하지 않습니다. <a href="assets/napkin-fold.mp4">영상 내려받기</a>
+      </video>
+    </div>
+    <p class="video-note">재생 버튼을 누르면 바로 시작합니다. 소리 없이 보셔도 순서는 그대로 따라 하실 수 있어요.</p>
+  </section>
+
+  <section id="steps">
+    <div class="sec-head">
+      <span class="num">도식</span>
+      <h2>1~6단계 한 장씩 보기</h2>
+    </div>
+
+    <div class="slider" role="region" aria-roledescription="슬라이드쇼" aria-label="냅킨 접기 6단계 도식">
+      <div class="viewport" id="viewport">
+        <div class="track" id="track">
+          <div class="slide" role="group" aria-roledescription="슬라이드" aria-label="1단계">
+            <img src="assets/step1.png" alt="1단계 도식 — 펼친 정사각형 냅킨을 반으로 접기" width="1200" height="979">
+            <div class="slide-cap">
+              <span class="badge">1</span>
+              <div>
+                <span class="cap-t">펼친 정사각형 냅킨 → 반으로</span>
+                <span class="cap-e">두 가장자리가 가운데서 딱 만나요</span>
+              </div>
+            </div>
+          </div>
+          <div class="slide" role="group" aria-roledescription="슬라이드" aria-label="2단계">
+            <img src="assets/step2.png" alt="2단계 도식 — 접은 면을 고르게 누르기" width="1200" height="979" loading="lazy">
+            <div class="slide-cap">
+              <span class="badge">2</span>
+              <div>
+                <span class="cap-t">접은 면을 고르게 눌러요</span>
+                <span class="cap-e">양손으로 위에서 눌러 공기를 빼 주세요</span>
+              </div>
+            </div>
+          </div>
+          <div class="slide" role="group" aria-roledescription="슬라이드" aria-label="3단계">
+            <img src="assets/step3.png" alt="3단계 도식 — 아래 엄지손가락만큼 남기고 반으로 접기" width="1200" height="979" loading="lazy">
+            <div class="slide-cap">
+              <span class="badge">3</span>
+              <div>
+                <span class="cap-t">아래 엄지손가락만큼 남기고 반으로 당겨 접어요</span>
+                <span class="cap-e">위쪽 반이 덮고, 맨 아래 엄지손가락만큼만 남겨요</span>
+              </div>
+            </div>
+          </div>
+          <div class="slide" role="group" aria-roledescription="슬라이드" aria-label="4단계">
+            <img src="assets/step4.png" alt="4단계 도식 — 네모반듯하게 정리하기" width="1200" height="979" loading="lazy">
+            <div class="slide-cap">
+              <span class="badge">4</span>
+              <div>
+                <span class="cap-t">네모반듯하게 정리해요</span>
+                <span class="cap-e">두 장이 아니라 한 장을 반으로 접은 거예요</span>
+              </div>
+            </div>
+          </div>
+          <div class="slide" role="group" aria-roledescription="슬라이드" aria-label="5단계">
+            <img src="assets/step5.png" alt="5단계 도식 — 3등분으로 접기" width="1200" height="979" loading="lazy">
+            <div class="slide-cap">
+              <span class="badge">5</span>
+              <div>
+                <span class="cap-t">3등분으로 접어요</span>
+                <span class="cap-e">아래에서 위로 3등분으로 접어 올려요</span>
+              </div>
+            </div>
+          </div>
+          <div class="slide" role="group" aria-roledescription="슬라이드" aria-label="6단계">
+            <img src="assets/step6.png" alt="6단계 도식 — 아래에서 위로 돌돌 말기" width="1200" height="979" loading="lazy">
+            <div class="slide-cap">
+              <span class="badge">6</span>
+              <div>
+                <span class="cap-t">아래에서 위로 돌돌 말아요</span>
+                <span class="cap-e">시접선이 보이게 놓은 상태에서 아래부터 돌돌 말아 올려요</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+
+      <div class="ctrl">
+        <button class="nav-btn" id="prev" type="button" aria-label="이전 단계">‹ 이전</button>
+        <span class="counter" aria-live="polite"><b id="cur">1</b> / 6</span>
+        <button class="nav-btn" id="next" type="button" aria-label="다음 단계">다음 ›</button>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="단계 바로 가기">
+        <button class="tab" type="button" role="tab" aria-selected="true" aria-controls="viewport">1</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="viewport">2</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="viewport">3</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="viewport">4</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="viewport">5</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="viewport">6</button>
+      </div>
+    </div>
+
+    <p class="hint">화면을 좌우로 넘겨도 다음 단계로 넘어가요.</p>
+  </section>
+
+  <section id="a4">
+    <div class="sec-head">
+      <span class="num">전체</span>
+      <h2>A4 한 장으로 한눈에</h2>
+    </div>
+    <details class="a4">
+      <summary>
+        <span>전체 6단계 한눈에 보기</span>
+        <span class="meta">눌러서 펼치기 <span class="chev">▼</span></span>
+      </summary>
+      <div class="a4-body">
+        <img src="assets/a4-guide.jpg" alt="냅킨 접기 6단계 도식 가이드 A4 한 장 전체" width="1240" height="1754" loading="lazy">
+        <a href="assets/a4-guide.jpg" target="_blank" rel="noopener">원본 크기로 보기 / 저장</a>
+      </div>
+    </details>
+  </section>
+
+  <footer>
+    <b>냅킨 접기 6단계 · 연회 서비스 교육용</b><br>
+    인쇄용 A4 1장 가이드와 같은 내용입니다.
+  </footer>
+</div>
+
+<script>
+(function(){
+  var track = document.getElementById('track');
+  var viewport = document.getElementById('viewport');
+  var prev = document.getElementById('prev');
+  var next = document.getElementById('next');
+  var cur = document.getElementById('cur');
+  var bar = document.getElementById('bar');
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  var idx = 0;
+
+  function render(){
+    track.style.transform = 'translateX(' + (-idx * 100) + '%)';
+    cur.textContent = idx + 1;
+    bar.style.width = ((idx + 1) / total * 100) + '%';
+    prev.disabled = idx === 0;
+    next.disabled = idx === total - 1;
+    tabs.forEach(function(t, i){ t.setAttribute('aria-selected', i === idx ? 'true' : 'false'); });
+    slides.forEach(function(s, i){ s.setAttribute('aria-hidden', i === idx ? 'false' : 'true'); });
+  }
+  function go(i){
+    idx = Math.max(0, Math.min(total - 1, i));
+    render();
+  }
+
+  prev.addEventListener('click', function(){ go(idx - 1); });
+  next.addEventListener('click', function(){ go(idx + 1); });
+  tabs.forEach(function(t, i){ t.addEventListener('click', function(){ go(i); }); });
+
+  // 터치 스와이프
+  var x0 = null, y0 = null, dx = 0, locked = null;
+  viewport.addEventListener('touchstart', function(e){
+    if (e.touches.length !== 1) return;
+    x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; dx = 0; locked = null;
+  }, {passive:true});
+  viewport.addEventListener('touchmove', function(e){
+    if (x0 === null || e.touches.length !== 1) return;
+    dx = e.touches[0].clientX - x0;
+    var dy = e.touches[0].clientY - y0;
+    if (locked === null){
+      if (Math.abs(dx) > 8 || Math.abs(dy) > 8) locked = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
+    }
+  }, {passive:true});
+  viewport.addEventListener('touchend', function(){
+    if (locked === 'x' && Math.abs(dx) > 42){
+      go(idx + (dx < 0 ? 1 : -1));
+    }
+    x0 = null; y0 = null; dx = 0; locked = null;
+  });
+  viewport.addEventListener('touchcancel', function(){ x0 = null; locked = null; });
+
+  // 키보드
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowLeft') { go(idx - 1); }
+    else if (e.key === 'ArrowRight') { go(idx + 1); }
+  });
+
+  // 주소에 #step3 처럼 붙여 바로 열기
+  var m = location.hash.match(/^#step([1-6])$/);
+  if (m) { go(parseInt(m[1], 10) - 1); }
+
+  render();
+})();
+</script>
+</body>
+</html>
